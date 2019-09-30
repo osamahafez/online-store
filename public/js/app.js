@@ -1730,6 +1730,9 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({});
 
 /***/ }),
@@ -6191,7 +6194,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "\nnav[data-v-6dde423b] {\n    background-color: #fff;\n    box-shadow: 0 0 15px -5px #000;\n    padding-bottom: 15px;\n}\n.logo[data-v-6dde423b] {\n    width: 125px;\n    height: 19px;\n}\n.login-btn[data-v-6dde423b] {\n    background-color: rgba(0, 0, 0, 0);\n    display: inline-block;\n    padding: 1px 19px;\n    margin-top: 7px;\n    margin-right: 30px;\n    font-size: 15px;\n    border-radius: 5px;\n    color: rgb(0, 102, 255);\n    cursor: pointer;\n    border: 2px solid rgb(0, 102, 255);\n    transition: all 0.3s;\n}\n.login-btn[data-v-6dde423b]:hover {\n    background-color: rgb(0, 102, 255);\n    color: #fff;\n}\n.cart[data-v-6dde423b] {\n        width: 33px;\n        height: 33px;\n        margin-top: 3px;\n}\n.cart-item[data-v-6dde423b] {\n        position:relative;\n        display:inline-block;\n}\n.notify-badge[data-v-6dde423b]{\n        position: absolute;\n        right: -7px;\n        top: -2px;\n        background: rgb(255,0,154);\n        text-align: center;\n        border-radius: 50%;\n        color: white;\n        padding: 0px 3px;\n        font-size: 12px;\n}\n", ""]);
+exports.push([module.i, "\nnav[data-v-6dde423b] {\n    background-color: #fff;\n    box-shadow: 0 0 15px -5px #000;\n    padding-bottom: 15px;\n}\n.logo[data-v-6dde423b] {\n    width: 125px;\n    height: 19px;\n}\n.login-btn[data-v-6dde423b] {\n    background-color: rgba(0, 0, 0, 0);\n    display: inline-block;\n    padding: 1px 19px;\n    margin-top: 7px;\n    margin-right: 30px;\n    font-size: 15px;\n    border-radius: 5px;\n    color: rgb(0, 102, 255);\n    cursor: pointer;\n    border: 2px solid rgb(0, 102, 255);\n    transition: all 0.3s;\n}\n.login-btn[data-v-6dde423b]:hover {\n    background-color: rgb(0, 102, 255);\n    color: #fff;\n}\n.cart[data-v-6dde423b] {\n        width: 33px;\n        height: 33px;\n        margin-top: 3px;\n        cursor: pointer;\n}\n.cart-item[data-v-6dde423b] {\n        position:relative;\n        display:inline-block;\n}\n.notify-badge[data-v-6dde423b]{\n        position: absolute;\n        right: -7px;\n        top: -2px;\n        background: rgb(255,0,154);\n        text-align: center;\n        border-radius: 50%;\n        color: white;\n        padding: 0px 3px;\n        font-size: 12px;\n}\n.cart-dropdown[data-v-6dde423b] {\n        display: block; /* or display none */\n        position: absolute;\n        right: 0;\n        margin-top: 10px;\n        background-color: #fff;\n        min-width: 160px;\n        box-shadow: 0px 3px 10px 0px rgba(0,0,0,0.2);\n        z-index: 1;\n}\n.cart-dropdown[data-v-6dde423b]::before {\n        content: '';\n        position: absolute;\n        top: -4px;\n        right: 8px;\n        width: 15px;\n        height: 15px;\n        background-color: #fff;\n        transform: rotateZ(45deg);\n}\n", ""]);
 
 // exports
 
@@ -37723,13 +37726,19 @@ var staticRenderFns = [
               _vm._v(" "),
               _c("li", { staticClass: "nav-item" }, [
                 _c("div", { staticClass: "cart-item" }, [
-                  _c("a", { attrs: { href: "#" } }, [
-                    _c("span", { staticClass: "notify-badge" }, [_vm._v("12")]),
+                  _c("span", { staticClass: "notify-badge" }, [_vm._v("12")]),
+                  _vm._v(" "),
+                  _c("img", {
+                    staticClass: "cart",
+                    attrs: { src: "/svg/cart.svg", alt: "cart" }
+                  }),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "cart-dropdown" }, [
+                    _c("p", [_vm._v("Link 1")]),
                     _vm._v(" "),
-                    _c("img", {
-                      staticClass: "cart",
-                      attrs: { src: "/svg/cart.svg", alt: "cart" }
-                    })
+                    _c("p", [_vm._v("Link 2")]),
+                    _vm._v(" "),
+                    _c("p", [_vm._v("Link 3")])
                   ])
                 ])
               ])

@@ -17,11 +17,14 @@
                             <button class="login-btn">Login</button>
                         </li>
                         <li class="nav-item">
-                            <div class="cart-item">
-                                <a href="#">
-                                    <span class="notify-badge">12</span>
-                                    <img src="/svg/cart.svg" alt="cart" class="cart" />
-                                </a>
+                            <div class="cart-item">                                
+                                <span class="notify-badge">12</span>
+                                <img src="/svg/cart.svg" alt="cart" class="cart" />
+                                <div class="cart-dropdown">
+                                    <p>Link 1</p>
+                                    <p>Link 2</p>
+                                    <p>Link 3</p>
+                                </div>
                             </div>
                         </li>
                     </ul>
@@ -74,6 +77,7 @@ export default {
             width: 33px;
             height: 33px;
             margin-top: 3px;
+            cursor: pointer;
         }
 
         .cart-item {
@@ -90,5 +94,27 @@ export default {
             color: white;
             padding: 0px 3px;
             font-size: 12px;
+        }
+
+        .cart-dropdown {
+            display: block; /* or display none */
+            position: absolute;
+            right: 0;
+            margin-top: 10px;
+            background-color: #fff;
+            min-width: 160px;
+            box-shadow: 0px 3px 10px 0px rgba(0,0,0,0.2);
+            z-index: 1;
+        }
+
+        .cart-dropdown::before {
+            content: '';
+            position: absolute;
+            top: -4px;
+            right: 8px;
+            width: 15px;
+            height: 15px;
+            background-color: #fff;
+            transform: rotateZ(45deg);
         }
 </style>
