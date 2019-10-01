@@ -46,6 +46,7 @@ export default {
         background-color: #fff;
         box-shadow: 0 0 15px -5px #000;
         padding-bottom: 15px;
+        margin-bottom: 30px;
     }
 
     .logo {
