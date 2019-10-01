@@ -14,7 +14,7 @@
                 <div class="collapse navbar-collapse" id="navbarElements">
                     <ul class="navbar-nav ml-auto">
                         <li class="nav-item">
-                            <button class="login-btn">Login</button>
+                            <button type="button" class="login-btn" data-toggle="modal" data-target="#loginModal">Login</button>
                         </li>
                         <li class="nav-item">
                             <div class="cart-item">                                
