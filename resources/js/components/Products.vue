@@ -16,12 +16,13 @@
                 ></ProductItem>
             </div>
         </div>
-        
+        <Pagination></Pagination>
     </div>
 </template>
 
 <script>
 import ProductItem from './ProductItem';
+import Pagination from './Pagination';
 
 export default {
 
@@ -33,7 +34,8 @@ export default {
     },
 
     components: {
-        ProductItem
+        ProductItem,
+        Pagination
     },
 
     methods: {
