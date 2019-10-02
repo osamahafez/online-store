@@ -28,9 +28,7 @@
     </head>
     <body>
        <div id="app">
-            <navbar-vue></navbar-vue>
-            <login-modal-vue></login-modal-vue>
-            <products-vue></products-vue>
+            <app-vue></app-vue>
        </div>
 
 
