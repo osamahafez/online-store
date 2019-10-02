@@ -18,12 +18,21 @@
                         </li>
                         <li class="nav-item">
                             <div class="cart-item">                                
-                                <span class="notify-badge">12</span>
-                                <img src="/svg/cart.svg" alt="cart" class="cart" />
-                                <div class="cart-dropdown">
-                                    <p>Link 1</p>
-                                    <p>Link 2</p>
-                                    <p>Link 3</p>
+                                <span v-if="badge" class="notify-badge">{{badge}}</span>
+                                <img v-on:click="activateDropdown()" v-bind:src="cart_svg" alt="cart" class="cart" />
+                                <div v-if="dropdown" class="cart-dropdown">
+                                    <div v-for="(cart, index) in cartItems" :key="index">
+                                        <CartItem 
+                                            v-bind:title="cart.title" 
+                                            v-bind:price="cart.total_price"
+                                            v-bind:photo="cart.photo"
+                                            >
+                                        </CartItem>
+                                    </div>
+                                    <div v-if="final_price" class="text-center checkout">
+                                        <p>Total: <span class="final-price">$ {{final_price}}</span></p>
+                                        <button class="btn btn-primary btn-sm btn-checkout">CHECKOUT</button>
+                                    </div>
                                 </div>
                             </div>
                         </li>
@@ -35,8 +44,50 @@
 </template>
 
 <script>
+
+import CartItem from './CartItem';
+
 export default {
-    
+
+    data() {
+        return {
+            dropdown: false,
+            cart_svg: '/svg/cart-black.svg',
+            final_price: 0
+        }
+    },
+
+    props: {
+        badge: Number,
+        cartItems: Array
+    },
+    components: {
+        CartItem
+    },
+    methods: {
+        calcFinalPrice() {
+            let calculated_price = 0;  
+            this.cartItems.map(item => {
+                calculated_price += item.total_price;
+            });
+            this.final_price = calculated_price;
+        },
+        activateDropdown() {
+            this.dropdown = !this.dropdown;
+            
+            if(this.dropdown) {
+                this.cart_svg = '/svg/cart-blue.svg';
+            }
+            else {
+                this.cart_svg = '/svg/cart-black.svg';
+            }
+        }
+    },
+
+    updated() {
+        this.calcFinalPrice();
+    }
+
 }
 </script>
 
@@ -93,7 +144,7 @@ export default {
             text-align: center;
             border-radius: 50%;
             color: white;
-            padding: 0px 3px;
+            padding: 0px 5px;
             font-size: 12px;
         }
 
@@ -103,7 +154,7 @@ export default {
             right: 0;
             margin-top: 10px;
             background-color: #fff;
-            min-width: 160px;
+            min-width: 270px;
             box-shadow: 0px 3px 10px 0px rgba(0,0,0,0.2);
             z-index: 1;
         }
@@ -117,5 +168,18 @@ export default {
             height: 15px;
             background-color: #fff;
             transform: rotateZ(45deg);
+        }
+
+        .final-price {
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        .checkout {
+            margin-bottom: 15px;
+        }
+
+        .btn-checkout {
+            padding: 3px 25px;
         }
 </style>
