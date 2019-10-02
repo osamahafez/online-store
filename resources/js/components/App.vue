@@ -1,8 +1,14 @@
 <template>
     <div>
-        <Navbar v-bind:badge="badge" v-bind:cartItems="cartItems"></Navbar>
+        <Navbar v-bind:badge="badge" v-bind:cartItems="cartItems" v-bind:admin="admin"></Navbar>
+        <div v-if="admin" class="container add-product">
+            <button class="btn btn-primary">Create Product</button>
+        </div>
+        
         <LoginModal></LoginModal>
-        <Products v-on:add-to-cart="addToCart($event)" ></Products>
+        
+        
+        <Products v-on:add-to-cart="addToCart($event)" v-bind:admin="admin"></Products>
     </div>
 </template>
 
@@ -19,6 +25,9 @@ export default {
             cartItems: []
         }
     },
+    props: {
+        admin: Boolean
+    },
     components: {
         Navbar,
         LoginModal,
@@ -34,5 +43,7 @@ export default {
 </script>
 
 <style scoped>
-
+    .add-product {
+        margin-bottom: 20px;
+    }
 </style>
