@@ -24,7 +24,19 @@
                     <div class="modal-body">
                         <div class="row">
                             <div class="col-md-6">
-                                photos
+                                <div class="row">
+                                    <div class="col-md-8 text-center">
+                                        <img class="chosen-photo" v-bind:src="chosenPhoto" alt="photo">
+                                    </div>
+                                    <div class="col-md-4">
+                                        <ul class="gallery">
+                                            <li><img v-on:click="selectChosenPhoto(photo1)" v-bind:src="photo1" alt="photo"></li>
+                                            <li><img v-on:click="selectChosenPhoto(photo2)" v-bind:src="photo2" alt="photo"></li>
+                                            <li><img v-on:click="selectChosenPhoto(photo3)" v-bind:src="photo3" alt="photo"></li>
+                                            <li><img v-on:click="selectChosenPhoto(photo4)" v-bind:src="photo4" alt="photo"></li>
+                                        </ul>
+                                    </div>
+                                </div>
                             </div>
                             <div class="col-md-6">
                                 <h5>{{title}}</h5>
@@ -37,7 +49,14 @@
                                         <button v-on:click="inc()" type="button" class="btn btn-light">+</button>
                                     </div>
                                     <button v-on:click="$emit('add-to-cart', addedItem)" class="btn btn-primary btn-sm">ADD TO CART</button>
-                                </div>                            
+                                </div>   
+                                <ProductColor></ProductColor>  
+                                <ProductSize></ProductSize> 
+                                <div class="description">
+                                    <h6>Description</h6>
+                                    <hr>
+                                    <p>{{description}}</p>
+                                </div>                      
                             </div>
                         </div>
                     </div>                
@@ -49,6 +68,8 @@
 
 <script>
 import StarRating from './StarRating';
+import ProductColor from './ProductColor';
+import ProductSize from './ProductSize';
 
 export default {
     data() {
@@ -57,6 +78,7 @@ export default {
             photo2: '',
             photo3: '',
             photo4: '',
+            chosenPhoto: '',
             quantity: 1,
             addedItem: {
                 title: this.title,
@@ -70,13 +92,16 @@ export default {
         product_id: Number,
         modal_id: String,
         title: String,
+        description: String,
         price: Number,
         featuredPhoto: String,
         rate: String,
         reviewsCount: Number,
     },
     components: {
-        StarRating
+        StarRating,
+        ProductColor,
+        ProductSize
     },
     methods: {
         loadPhotos() {
@@ -87,6 +112,7 @@ export default {
                     this.photo2 = res.data[1].photo;
                     this.photo3 = res.data[2].photo;
                     this.photo4 = res.data[3].photo;
+                    this.chosenPhoto = res.data[0].photo;
                 })
                 .catch(err => console.log(err));
         },
@@ -100,6 +126,9 @@ export default {
         },
         addToCart() {
             this.badge = this.badge + 1;
+        },
+        selectChosenPhoto(photo) {
+            this.chosenPhoto = photo;
         }
     },
 
@@ -138,6 +167,7 @@ export default {
     }
 
     .quantity {
+        margin: 10px 0;
         display: flex;
         justify-content: space-between;
     }
@@ -154,4 +184,33 @@ export default {
     .quantity-counter {
         padding: 0 24px;
     }
+
+    .chosen-photo {
+        width: 220px;
+        height: 220px;
+    }
+
+    .gallery {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+    }
+
+    .gallery img {
+        width: 70px;
+        height: 70px;
+        margin-top: 5px;
+    }
+
+    .gallery img:hover {
+        cursor: pointer;
+        transition: 0.2s;
+        transform: scale(1.1);
+        outline: 2px solid rgb(0, 102, 255);
+    }
+
+    .description {
+        margin: 20px 0;
+    }
+
 </style>

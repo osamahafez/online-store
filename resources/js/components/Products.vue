@@ -6,6 +6,7 @@
                     v-bind:product_id="product.id"
                     v-bind:modal_id="'m'+product.id"
                     v-bind:title="product.name"
+                    v-bind:description="product.description"
                     v-bind:price="product.price"
                     v-bind:featuredPhoto="product.featuredPhoto"
                     v-bind:rate="product.rate"
