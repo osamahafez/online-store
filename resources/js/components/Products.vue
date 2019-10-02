@@ -1,18 +1,16 @@
 <template>
     <div class="container">
         <div class="row">
-
-            <!-- <div v-for="product in products" v-bind:key="product.id">
-               <h3>{{product.name}}</h3>
-            </div> -->
-
             <div class="col-md-3" v-for="product in products" v-bind:key="product.id">
                 <ProductItem 
+                    v-bind:product_id="product.id"
+                    v-bind:modal_id="'m'+product.id"
                     v-bind:title="product.name"
                     v-bind:price="product.price"
                     v-bind:featuredPhoto="product.featuredPhoto"
                     v-bind:rate="product.rate"
-                    v-bind:reviewsCount="product.reviewsCount"
+                    v-bind:reviewsCount="product.reviewsCount" 
+                    v-on:add-to-cart="$emit('add-to-cart', $event)"                   
                 ></ProductItem>
             </div>
         </div>
@@ -54,5 +52,5 @@ export default {
 </script>
 
 <style scoped>
-
+    
 </style>
