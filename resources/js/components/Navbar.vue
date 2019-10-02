@@ -13,7 +13,7 @@
 
                 <div class="collapse navbar-collapse" id="navbarElements">
                     <ul class="navbar-nav ml-auto">
-                        <li class="nav-item">
+                        <li v-if="!admin" class="nav-item">
                             <button type="button" class="login-btn" data-toggle="modal" data-target="#loginModal">Login</button>
                         </li>
                         <li class="nav-item">
@@ -59,7 +59,8 @@ export default {
 
     props: {
         badge: Number,
-        cartItems: Array
+        cartItems: Array,
+        admin: Boolean
     },
     components: {
         CartItem

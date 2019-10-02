@@ -28,7 +28,8 @@
     </head>
     <body>
        <div id="app">
-            <app-vue></app-vue>
+        
+        <router-view></router-view>
        </div>
 
 

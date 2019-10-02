@@ -11,7 +11,8 @@
                     v-bind:featuredPhoto="product.featuredPhoto"
                     v-bind:rate="product.rate"
                     v-bind:reviewsCount="product.reviewsCount" 
-                    v-on:add-to-cart="$emit('add-to-cart', $event)"                   
+                    v-on:add-to-cart="$emit('add-to-cart', $event)" 
+                    v-bind:admin="admin"                  
                 ></ProductItem>
             </div>
         </div>
@@ -32,6 +33,9 @@ export default {
         }
     },
 
+    props: {
+        admin: Boolean
+    },
     components: {
         ProductItem,
         Pagination

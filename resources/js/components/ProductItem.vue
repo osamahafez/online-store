@@ -12,6 +12,11 @@
                     <span class="price">${{price}}</span>
                     <button v-on:click="$emit('add-to-cart', addedItem)" class="btn btn-primary btn-custom">ADD TO CART</button>
                 </div>
+
+                <div v-if="admin" class="control-buttons">
+                    <button class="btn btn-success btn-sm">Edit</button>
+                    <button class="btn btn-danger btn-sm">Delete</button>
+                </div>
             </div>
         </div>
 
@@ -97,6 +102,7 @@ export default {
         featuredPhoto: String,
         rate: String,
         reviewsCount: Number,
+        admin: Boolean
     },
     components: {
         StarRating,
@@ -211,6 +217,16 @@ export default {
 
     .description {
         margin: 20px 0;
+    }
+
+    .control-buttons {
+        margin-top: 20px;
+        display: flex;
+        justify-content: center;
+    }
+
+    .control-buttons button {
+        margin-left: 5px;
     }
 
 </style>
