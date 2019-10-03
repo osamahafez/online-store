@@ -12,4 +12,5 @@ Vue js app with laravel backend
 6. Generate app encryption key using `` php artisan key:generate ``
 7. Generate the database tables using `` php artisan migrate `` 
 8. Run `` php artisan serve `` and `` npm run watch `` to open the project
-9. admin route is at `` localhost:8000\#\admin ``
+9. Add new product throught api post request `` localhost:8000\api\product ``
+10. admin route is at `` localhost:8000\#\admin ``
